@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git log
+git log --pretty="%ad%n%n%B%n%n"
