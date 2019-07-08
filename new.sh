@@ -11,4 +11,4 @@ ts=$(( `cat ./.ts` + 1))
 echo $ts > ./.ts
 
 git add ./.ts
-git commit -m "$1"
+git commit -m "$1" > /dev/null
