@@ -6,4 +6,5 @@ then
 	exit 1
 fi
 
+git remote remove origin
 git remote add origin $1
