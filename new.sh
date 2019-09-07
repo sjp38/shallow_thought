@@ -7,6 +7,11 @@ then
 fi
 
 git pull origin master
+if [ $? -ne 0 ]
+then
+	echo "Failed to pull remote"
+	exit 1
+fi
 
 ts=$(( `cat ./.ts` + 1))
 echo $ts > ./.ts
@@ -14,3 +19,8 @@ git add ./.ts
 git commit -m "$1" > /dev/null
 
 git push origin master
+if [ $? -ne 0 ]
+then
+	echo "Failed to push to remote.  Do push manually."
+	exit 1
+fi
