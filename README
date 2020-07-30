@@ -4,3 +4,45 @@ Shallow Thought
 This is a tool for logging and posting simple, short, and shallow thoughts in
 CLI way.  It aims to be simple and light so that could be conveniently used on
 even mobile phones including the Tmux environment on Android phone.
+
+
+Getting Started
+===============
+
+Initialization
+--------------
+
+Place shallow_thoughts on your machine.
+
+    $ git clone https://github.com/sjp38/shallow_thoughts
+
+Make a remote blank git repo somewhere (e.g., gitlab or github).  Let's
+assume you set your blank git repo at ``https://github.com/foo/my_thoughts``.
+Then, make a directory that will be used as a local storage of your thought.
+
+    $ mkdir my_thoughts
+
+Move to your local storage and initialize the local storage to follow the
+remote repo.  Your thoughts will be automatically backed up on the remote repo.
+
+    $ cd my_thoughts
+    $ ../shallow_thoughts/init.sh https://github.com/foo/my_thoughts
+
+
+Save Thoughts
+-------------
+
+``new.sh`` receives your thought as string.  Then, it will pull the thoughts in
+the remote storage (``https://github.com/foo/my_thoughts`` in this example) on
+your local storage, save your thought on it and push to the remote storage.
+
+    $ ../shallow_thoughts/new.sh "Let it go."
+
+
+Show Thoughts
+-------------
+
+``show.sh`` lists your past thoughts that you saved via this tool on this
+storage.
+
+    $ ../shallow_thoughts/show.sh
