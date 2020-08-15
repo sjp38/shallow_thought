@@ -6,10 +6,10 @@ then
 	exit 1
 fi
 
-echo "The text is:"
+echo "This will log your thought:"
 echo "$1"
 echo
-read -p "Right? [Y/n]" answer
+read -p "Okay? [Y/n] " answer
 if [ "$answer" = "n" ]
 then
 	exit
