@@ -46,3 +46,12 @@ Show Thoughts
 storage.
 
     $ ../shallow_thoughts/show.sh
+
+
+Overwrite Thoughts
+------------------
+
+``overwrite.sh`` receives your thought as string and overwrite the latest
+thought with it and push to the remote storage.
+
+    $ ../shallow_thoughts/overwrite.sh "Slam the door."
