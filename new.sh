@@ -6,6 +6,15 @@ then
 	exit 1
 fi
 
+echo "The text is:"
+echo "$1"
+echo
+read -p "Right? [Y/n]" answer
+if [ "$answer" = "n" ]
+then
+	exit
+fi
+
 git pull origin master
 if [ $? -ne 0 ]
 then
