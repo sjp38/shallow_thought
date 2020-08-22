@@ -12,13 +12,13 @@ Getting Started
 Initialization
 --------------
 
-Place shallow_thought on your machine.
+Place this directory on your machine.
 
     $ git clone https://github.com/sjp38/shallow_thought
 
 Make a remote blank git repo somewhere (e.g., gitlab or github).  Let's
 assume you set your blank git repo at ``https://github.com/foo/my_thoughts``.
-Then, make a directory that will be used as a local storage of your thought.
+Then, make a directory that will be used as a local storage of your thoughts.
 
     $ mkdir my_thoughts
 
