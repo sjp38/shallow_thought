@@ -12,9 +12,9 @@ Getting Started
 Initialization
 --------------
 
-Place shallow_thoughts on your machine.
+Place shallow_thought on your machine.
 
-    $ git clone https://github.com/sjp38/shallow_thoughts
+    $ git clone https://github.com/sjp38/shallow_thought
 
 Make a remote blank git repo somewhere (e.g., gitlab or github).  Let's
 assume you set your blank git repo at ``https://github.com/foo/my_thoughts``.
@@ -26,7 +26,7 @@ Move to your local storage and initialize the local storage to follow the
 remote repo.  Your thoughts will be automatically backed up on the remote repo.
 
     $ cd my_thoughts
-    $ ../shallow_thoughts/init.sh https://github.com/foo/my_thoughts
+    $ ../shallow_thought/init.sh https://github.com/foo/my_thoughts
 
 
 Save Thoughts
@@ -36,7 +36,7 @@ Save Thoughts
 the remote storage (``https://github.com/foo/my_thoughts`` in this example) on
 your local storage, save your thought on it and push to the remote storage.
 
-    $ ../shallow_thoughts/new.sh "Let it go."
+    $ ../shallow_thought/new.sh "Let it go."
 
 
 Show Thoughts
@@ -45,7 +45,7 @@ Show Thoughts
 ``show.sh`` lists your past thoughts that you saved via this tool on this
 storage.
 
-    $ ../shallow_thoughts/show.sh
+    $ ../shallow_thought/show.sh
 
 
 Overwrite Thoughts
@@ -54,4 +54,4 @@ Overwrite Thoughts
 ``overwrite.sh`` receives your thought as string and overwrite the latest
 thought with it and push to the remote storage.
 
-    $ ../shallow_thoughts/overwrite.sh "Slam the door."
+    $ ../shallow_thought/overwrite.sh "Slam the door."
