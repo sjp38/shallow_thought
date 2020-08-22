@@ -8,5 +8,5 @@ then
 	exit
 fi
 
-REMOTE_URL=$1
-git remote add origin $REMOTE_URL
+REMOTE_URL="$1"
+git remote add origin "$REMOTE_URL"
