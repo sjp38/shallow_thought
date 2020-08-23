@@ -9,7 +9,7 @@ fi
 echo "This will log your thought:"
 echo "$1"
 echo
-read -p "Okay? [Y/n] " answer
+read -rp "Okay? [Y/n] " answer
 if [ "$answer" = "n" ]
 then
 	exit
