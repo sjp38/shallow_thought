@@ -5,7 +5,8 @@ echo 0 > ./.ts
 
 if [ $# -lt 1 ]
 then
-	exit
+	echo "Usage: $0 <remote storage url>"
+	exit 1
 fi
 
 REMOTE_URL="$1"
