@@ -42,7 +42,7 @@ your local storage, save your thought on it and push to the remote storage.
 Show Thoughts
 -------------
 
-``show.sh`` lists your past thoughts that you saved via this tool on this
+``show.sh`` lists your past thoughts that you saved via this tool on the local
 storage.
 
     $ ../shallow_thought/show.sh
