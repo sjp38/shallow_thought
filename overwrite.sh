@@ -2,8 +2,7 @@
 
 # Overwrite the latest message
 
-git pull origin master
-if [ $? -ne 0 ]
+if ! git pull origin master
 then
 	echo "Failed to pull remote"
 	exit 1
@@ -33,8 +32,7 @@ then
 fi
 git commit --amend -m "$1" > /dev/null
 
-git push origin master --force
-if [ $? -ne 0 ]
+if ! git push origin master --force
 then
 	echo "Failed to push to remote.  Do push manually."
 	exit 1
