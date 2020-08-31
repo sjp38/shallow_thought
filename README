@@ -47,6 +47,10 @@ storage.
 
     $ ../shallow_thought/show.sh
 
+By giving ``--random`` option, you can randomly pick a thought to show.
+
+    $ ../shallow_thought/show.sh --random
+
 
 Overwrite Thoughts
 ------------------
