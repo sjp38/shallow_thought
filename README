@@ -72,15 +72,6 @@ If you don't provide the ``<number of latest thoughts to remove>``, it will
 remove only one latest thought.
 
 
-Overwrite Thoughts
-------------------
-
-``overwrite`` subcommand receives your thought as string and overwrite the
-latest thought with it and push to the remote storage.
-
-    $ ../shallow_thought/st overwrite "Slam the door."
-
-
 Export Thoughts
 ---------------
 
