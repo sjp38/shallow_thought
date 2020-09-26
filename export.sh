@@ -1,6 +1,12 @@
 #!/bin/bash
 
-export_dir="st_exported"
+if [ $# -ne 1 ]
+then
+	echo "Usage: $0 <export dir>"
+	exit 1
+fi
+
+export_dir="$1"
 
 mkdir -p "$export_dir"
 
@@ -17,4 +23,4 @@ do
 	echo "$content" > "$export_dir/$title"
 done
 
-echo "The thoughts are exported in '$export_dir'"
+echo "The $nr_thoughts thoughts are exported in '$export_dir/'"
