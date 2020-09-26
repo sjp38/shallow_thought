@@ -67,3 +67,13 @@ Overwrite Thoughts
 latest thought with it and push to the remote storage.
 
     $ ../shallow_thought/st overwrite "Slam the door."
+
+
+Export Thoughts
+---------------
+
+``export`` subcommand stores each of your thoughts in a text file.
+
+    $ ../shallow_thought/st export
+
+The command will say where the thoughts are exported.
