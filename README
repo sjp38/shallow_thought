@@ -26,7 +26,7 @@ Move to your local storage and initialize the local storage to follow the
 remote repo.  Your thoughts will be automatically backed up on the remote repo.
 
     $ cd my_thoughts
-    $ ../shallow_thought/init.sh https://github.com/foo/my_thoughts
+    $ ../shallow_thought/st init https://github.com/foo/my_thoughts
 
 
 Save Thoughts
@@ -36,7 +36,7 @@ Save Thoughts
 the remote storage (``https://github.com/foo/my_thoughts`` in this example) on
 your local storage, save your thought on it and push to the remote storage.
 
-    $ ../shallow_thought/new.sh "Let it go."
+    $ ../shallow_thought/st new "Let it go."
 
 
 Show Thoughts
@@ -45,11 +45,11 @@ Show Thoughts
 ``show.sh`` lists your past thoughts that you saved via this tool on the local
 storage.
 
-    $ ../shallow_thought/show.sh
+    $ ../shallow_thought/st show
 
 By giving ``--random`` option, you can randomly pick a thought to show.
 
-    $ ../shallow_thought/show.sh --random
+    $ ../shallow_thought/st show --random
 
 
 Overwrite Thoughts
@@ -58,4 +58,4 @@ Overwrite Thoughts
 ``overwrite.sh`` receives your thought as string and overwrite the latest
 thought with it and push to the remote storage.
 
-    $ ../shallow_thought/overwrite.sh "Slam the door."
+    $ ../shallow_thought/st overwrite "Slam the door."
