@@ -60,6 +60,18 @@ By giving ``--random`` option, you can randomly pick a thought to show.
     $ ../shallow_thought/st show --random
 
 
+Remove Thoughts
+---------------
+
+``remove`` subcommand removes one or more latest thoughts you wish to remove.
+Note that removal will be also applied on your remote storage.
+
+    $ ../shallow_thought/st remove <number of latest thoughts to remove>
+
+If you don't provide the ``<number of latest thoughts to remove>``, it will
+remove only one latest thought.
+
+
 Overwrite Thoughts
 ------------------
 
