@@ -80,3 +80,14 @@ Export Thoughts
     $ ../shallow_thought/st export
 
 The command will say where the thoughts are exported.
+
+
+Import Thoughts
+---------------
+
+``import`` subcommand imports thoughts exported by ``export`` subcommand.
+
+    $ ../shallow_thought/st import <thoughts dir>
+
+The command receives the directory the thoughts to be imported are stored.
+Imported thoughts are sorted in the date.
