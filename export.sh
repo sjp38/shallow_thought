@@ -20,14 +20,16 @@ do
 	content="$(git log $git_option --pretty="%ad%n%n%B")"
 
 	title=$(printf "%04d_" $i)
-	title+="$(git log $git_option --pretty="%ad" --date=iso)"
-	if [ -e $export_dir/$title ]
+	title+="$(git log $git_option --pretty="%ad.%h" --date=iso)"
+
+	thought_file="$export_dir/$title"
+	if [ -f "$thought_file" ]
 	then
-		echo "$export_dir/$title already exists!"
+		echo "$thought_file exists"
 		exit 1
 	fi
 
-	echo "$content" > "$export_dir/$title"
+	echo "$content" > "$thought_file"
 done
 
 echo "The $nr_thoughts thoughts are exported in '$export_dir/'"
