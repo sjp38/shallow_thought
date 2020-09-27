@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -lt 1 ] || [ $# -gt 3 ]
+if [ $# -lt 1 ]
 then
 	echo "Usage: $0 [options] <text to log>"
 	echo "options:"
