@@ -19,8 +19,7 @@ do
 	git_option="--skip=$to_skip --max-count=1"
 	content="$(git log $git_option --pretty="%ad%n%n%B")"
 
-	title=$(printf "%04d_" $i)
-	title+="$(git log $git_option --pretty="%ad.%h" --date=iso)"
+	title="$(git log $git_option --pretty="%ad.%h" --date=iso)"
 
 	thought_file="$export_dir/$title"
 	if [ -f "$thought_file" ]
