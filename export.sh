@@ -18,8 +18,15 @@ do
 	to_skip=$((nr_thoughts - 1 - i))
 	git_option="--skip=$to_skip --max-count=1"
 	content="$(git log $git_option --pretty="%ad%n%n%B")"
+
 	title=$(printf "%04d_" $i)
 	title+="$(git log $git_option --pretty="%ad" --date=iso)"
+	if [ -e $export_dir/$title ]
+	then
+		echo "$export_dir/$title already exists!"
+		exit 1
+	fi
+
 	echo "$content" > "$export_dir/$title"
 done
 
