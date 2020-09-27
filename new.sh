@@ -32,7 +32,10 @@ then
 fi
 
 tags=$(echo "$msg" | grep -o -E "#[a-zA-Z0-9_-]+" | tr '\n' ' ')
-echo "found tags: $tags"
+if [ ! -z "$tags" ]
+then
+	echo "found tags: $tags"
+fi
 
 read -rp "Okay? [Y/n] " answer
 if [ "$answer" = "n" ]
