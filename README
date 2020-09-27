@@ -16,6 +16,9 @@ Place this directory on your machine.
 
     $ git clone https://github.com/sjp38/shallow_thought
 
+Now the tool can be used by executing `st` in the cloned directory.  For
+brevity, let's assume you set ``$PATH`` to point the directory.
+
 Make a remote blank git repo somewhere (e.g., gitlab or github).  Let's
 assume you set your blank git repo at ``https://github.com/foo/my_thoughts``.
 Then, make a directory that will be used as a local storage of your thoughts.
@@ -26,7 +29,7 @@ Move to your local storage and initialize the local storage to follow the
 remote repo.  Your thoughts will be automatically backed up on the remote repo.
 
     $ cd my_thoughts
-    $ ../shallow_thought/st init https://github.com/foo/my_thoughts
+    $ st init https://github.com/foo/my_thoughts
 
 The basic usage of this tool is:
 
@@ -44,7 +47,7 @@ thoughts in the remote storage (``https://github.com/foo/my_thoughts`` in this
 example) on your local storage, save your thought on it and push to the remote
 storage.
 
-    $ ../shallow_thought/st new "Let it go."
+    $ st new "Let it go."
 
 
 Show Thoughts
@@ -53,11 +56,11 @@ Show Thoughts
 ``show`` subcommand lists your past thoughts that you saved via this tool on
 the local storage.
 
-    $ ../shallow_thought/st show
+    $ st show
 
 By giving ``--random`` option, you can randomly pick a thought to show.
 
-    $ ../shallow_thought/st show --random
+    $ st show --random
 
 
 Remove Thoughts
@@ -66,7 +69,7 @@ Remove Thoughts
 ``remove`` subcommand removes one or more latest thoughts you wish to remove.
 Note that removal will be also applied on your remote storage.
 
-    $ ../shallow_thought/st remove <number of latest thoughts to remove>
+    $ st remove <number of latest thoughts to remove>
 
 If you don't provide the ``<number of latest thoughts to remove>``, it will
 remove only one latest thought.
@@ -77,7 +80,7 @@ Export Thoughts
 
 ``export`` subcommand stores each of your thoughts in a text file.
 
-    $ ../shallow_thought/st export <export dir>
+    $ st export <export dir>
 
 The command receives directory to store the thoughts as an argument.
 
@@ -87,7 +90,7 @@ Import Thoughts
 
 ``import`` subcommand imports thoughts exported by ``export`` subcommand.
 
-    $ ../shallow_thought/st import <thoughts dir>
+    $ st import <thoughts dir>
 
 The command receives the directory the thoughts to be imported are stored.
 Imported thoughts are sorted in the date.
