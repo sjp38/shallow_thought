@@ -2,16 +2,25 @@
 
 if [ $# -lt 1 ] || [ $# -gt 3 ]
 then
-	echo "Usage: $0 [--date <date>] <text to log>"
+	echo "Usage: $0 [options] <text to log>"
+	echo "options:"
+	echo "  --date <date>	Specify date of the thought"
+	echo "  --no-sync	Do not sync with the remote storage"
 	exit 1
 fi
 
 date=""
+no_sync=false
 while true; do
 	case $1 in
 	"--date")
 		date=$2
 		shift 2
+		continue
+		;;
+	"--no-sync")
+		no_sync=true
+		shift 1
 		continue
 		;;
 	*)
@@ -43,7 +52,7 @@ then
 	exit
 fi
 
-if ! git pull origin master
+if ! $no_sync && ! git pull origin master
 then
 	echo "Failed to pull remote"
 	exit 1
@@ -78,7 +87,7 @@ then
 fi
 git commit -m "$1" > /dev/null
 
-if ! git push origin master
+if ! $no_sync && ! git push origin master
 then
 	echo "Failed to push to remote.  Do push manually."
 	exit 1
