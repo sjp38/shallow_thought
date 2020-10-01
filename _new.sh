@@ -27,12 +27,12 @@ fi
 for tag in $tags
 do
 	tagfile="tags/$tag"
-	if [ ! -e $tagfile ]
+	if [ ! -e "$tagfile" ]
 	then
-		touch $tagfile
+		touch "$tagfile"
 	fi
-	nr_thoughts=$(( $(cat $tagfile) + 1))
-	echo $nr_thoughts > $tagfile
+	nr_thoughts=$(( $(cat "$tagfile") + 1))
+	echo $nr_thoughts > "$tagfile"
 done
 
 ts=$(( $(cat ./.ts) + 1))
