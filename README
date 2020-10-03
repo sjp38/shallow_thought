@@ -1,9 +1,15 @@
 Shallow Thought
 ===============
 
-This is a tool for logging and posting simple, short, and shallow thoughts in
-the CLI way.  It aims to be simple and light so that it could be conveniently
-used on every devices including the Tmux environment on phones.
+A CLI tool for simple and safe managements of shallow thoughts.
+
+
+Key Features
+------------
+
+- Git-based powerful history management.
+- Proactive remote backups.
+- Filesystem based flexible thoughts import/export/modification
 
 
 Getting Started
