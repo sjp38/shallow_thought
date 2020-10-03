@@ -1,12 +1,20 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]
+if [ $# -lt 1 ]
 then
-	echo "Usage: $0 <thoughts dir>"
+	echo "Usage: $0 <thought> [<thought> ...]"
 	exit 1
 fi
 
-to_import_dir=$1
+if ! tmpdir=$(mktemp -d tmp_import_dir.XXXX)
+then
+	echo "Failed mktemp"
+	exit 1
+fi
+
+cp "${@:1}" "$tmpdir/"
+
+to_import_dir="$tmpdir"
 
 BINDIR=$(dirname "$0")
 
@@ -34,3 +42,5 @@ while IFS= read thought_file; do
 done <<< "$to_import"
 
 git push origin master --force
+
+rm -fr "$to_import_dir"
