@@ -6,13 +6,14 @@ then
 	exit 1
 fi
 
+BINDIR=$(dirname "$0")
 date=$1
 no_sync=$2
 msg=$3
 
-if ! $no_sync && ! git pull origin master
+if ! $no_sync && ! "$BINDIR/_pull.sh"
 then
-	echo "Failed to pull remote"
+	echo "Sync failed"
 	exit 1
 fi
 
@@ -46,6 +47,7 @@ then
 fi
 git commit -m "$msg" > /dev/null
 
+echo "Push the thought"
 if ! $no_sync && ! git push origin master
 then
 	echo "Failed to push to remote.  Do push manually."
