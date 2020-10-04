@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-if ! tmpdir=$(mktemp -d tmp_import_dir.XXXX)
+if ! tmpdir=$(mktemp -d st_import_dir.XXXX)
 then
 	echo "Failed mktemp"
 	exit 1
