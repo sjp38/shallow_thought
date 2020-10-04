@@ -23,6 +23,11 @@ echo "export current thoughts to $to_import_dir"
 
 to_import=$("$BINDIR/_verify_sort_thoughts.py" "$to_import_dir") || exit 1
 
+backup_name=$(date +%Y-%m-%d-%H-%M-%S)
+echo "Backup current thoughts in name of $backup_name"
+git branch "$backup_name"
+git push origin "$backup_name"
+
 echo "Initialize"
 origin=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
 rm -fr .git.bak
@@ -41,6 +46,7 @@ while IFS= read thought_file; do
 
 done <<< "$to_import"
 
+echo "push imported thoughts"
 git push origin master --force
 
 rm -fr "$to_import_dir"
