@@ -12,7 +12,16 @@ then
 	exit 1
 fi
 
-cp "${@:1}" "$tmpdir/"
+for t in "${@:1}"
+do
+	if [ ! -f "$t" ]
+	then
+		echo "$t is not file"
+		exit 1
+	fi
+done
+
+cp "${@:1}" "$tmpdir/" || exit 1
 
 to_import_dir="$tmpdir"
 
