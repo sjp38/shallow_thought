@@ -6,7 +6,18 @@ function pr_usage {
 	echo "OPTION"
 	echo "  --random	Show random thought"
 	echo "  --tags <tags>	Show thoughts of <tags>"
+	echo "  --lstags	List existing tags and number of thoughts"
+	echo "              	having each tag"
 	echo "  -h, --help	Show this usage"
+}
+
+function ls_tags {
+	for tag in tags/*
+	do
+		nr_thoughts=$(cat "$tag")
+		tag_name=$(basename "$tag")
+		echo "$tag_name $nr_thoughts"
+	done
 }
 
 random=false
@@ -18,9 +29,18 @@ while [ $# -ne 0 ]; do
 		continue
 		;;
 	"--tags")
+		if [ $# -lt 2 ]
+		then
+			echo "<tags> not given"
+			exit 1
+		fi
 		tags=$2
 		shift 2
 		continue
+		;;
+	"--lstags")
+		ls_tags
+		exit 0
 		;;
 	"--help")
 		pr_usage
