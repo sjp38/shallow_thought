@@ -30,6 +30,7 @@ git push origin "$backup_name"
 
 echo "Initialize"
 origin=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
+rm -fr tags
 rm -fr .git.bak
 mv .git .git.bak
 git init
