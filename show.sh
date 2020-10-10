@@ -10,7 +10,7 @@ function pr_usage {
 }
 
 random=false
-while true; do
+while [ $# -ne 0 ]; do
 	case "$1" in
 	"--random")
 		random=true
@@ -31,7 +31,8 @@ while true; do
 		exit 0
 		;;
 	*)
-		break
+		pr_usage
+		exit 1
 		;;
 	esac
 done
