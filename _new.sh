@@ -47,8 +47,13 @@ then
 fi
 git commit -m "$msg" > /dev/null
 
+if "$no_sync"
+then
+	exit 0
+fi
+
 echo "Push the thought"
-if ! $no_sync && ! git push origin master
+if ! git push origin master
 then
 	echo "Failed to push to remote.  Do push manually."
 	exit 1
