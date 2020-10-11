@@ -2,18 +2,22 @@
 
 BINDIR=$(dirname "$0")
 
-if [ $# -lt 1 ]
-then
+function pr_usage {
 	echo "Usage: $0 [options] <text to log>"
 	echo "options:"
 	echo "  --date <date>	Specify date of the thought"
 	echo "  --no-sync	Do not sync with the remote storage"
+}
+
+if [ $# -lt 1 ]
+then
+	pr_usage
 	exit 1
 fi
 
 date=""
 no_sync=false
-while true; do
+while [ $# -ne 0 ]; do
 	case $1 in
 	"--date")
 		date=$2
@@ -26,12 +30,16 @@ while true; do
 		continue
 		;;
 	*)
+		if [ $# -ne 1 ]
+		then
+			pr_usage
+			exit 1
+		fi
+		msg=$1
 		break
 		;;
 	esac
 done
-
-msg=$1
 
 echo "This will log your thought:"
 echo "$msg"
