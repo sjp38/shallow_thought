@@ -3,8 +3,9 @@
 BINDIR=$(dirname "$0")
 
 function pr_usage {
-	echo "Usage: $0 [options] <text to log>"
-	echo "options:"
+	echo "Usage: $0 [OPTION]... <text to log>"
+	echo
+	echo "OPTION"
 	echo "  --date <date>	Specify date of the thought"
 	echo "  --no-sync	Do not sync with the remote storage"
 	echo "  -h, --help	Show this usage"
