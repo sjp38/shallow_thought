@@ -42,6 +42,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<tags> not given"
+			pr_usage
 			exit 1
 		fi
 		tags=$2
@@ -56,6 +57,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<name> not given"
+			pr_usage
 			exit 1
 		fi
 		backup=$2
