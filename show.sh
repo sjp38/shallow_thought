@@ -8,6 +8,7 @@ function pr_usage {
 	echo "  --tags <tags>	Show thoughts of <tags>"
 	echo "  --lstags	List existing tags and number of thoughts"
 	echo "              	having each tag"
+	echo " --backup <name>	Show thoughts in backup of <name>"
 	echo "  --lsbackups	List backups of thoughts"
 	echo "  -h, --help	Show this usage"
 }
@@ -47,6 +48,16 @@ while [ $# -ne 0 ]; do
 		ls_tags
 		exit 0
 		;;
+	"--backup")
+		if [ $# -lt 2 ]
+		then
+			echo "<name> not given"
+			exit 1
+		fi
+		backup=$2
+		shift 2
+		continue
+		;;
 	"--lsbackups")
 		ls_backups
 		exit 0
@@ -85,5 +96,11 @@ then
 	to_skip=$((RANDOM % nr_thoughts))
 	nr_thoughts=1
 fi
-git log --pretty="%ad%n%n%B%n%n" --skip=$to_skip --max-count=$nr_thoughts \
+cmd="git log"
+if [ "$backup" != "" ]
+then
+	cmd+=" origin/$backup"
+	echo $cmd
+fi
+$cmd --pretty="%ad%n%n%B%n%n" --skip=$to_skip --max-count=$nr_thoughts \
 	$tags_option
