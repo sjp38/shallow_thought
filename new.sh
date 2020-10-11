@@ -7,6 +7,7 @@ function pr_usage {
 	echo "options:"
 	echo "  --date <date>	Specify date of the thought"
 	echo "  --no-sync	Do not sync with the remote storage"
+	echo "  -h, --help	Show this usage"
 }
 
 if [ $# -lt 1 ]
@@ -34,6 +35,10 @@ while [ $# -ne 0 ]; do
 		no_sync=true
 		shift 1
 		continue
+		;;
+	"--help" | "-h")
+		pr_usage
+		exit 0
 		;;
 	*)
 		if [ $# -ne 1 ]
