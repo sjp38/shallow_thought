@@ -8,6 +8,7 @@ function pr_usage {
 	echo "  --tags <tags>	Show thoughts of <tags>"
 	echo "  --lstags	List existing tags and number of thoughts"
 	echo "              	having each tag"
+	echo "  --lsbackups	List backups of thoughts"
 	echo "  -h, --help	Show this usage"
 }
 
@@ -18,6 +19,10 @@ function ls_tags {
 		tag_name=$(basename "$tag")
 		echo "$tag_name $nr_thoughts"
 	done
+}
+
+function ls_backups {
+	git branch -r | awk -F'/' '{if ($2 != "master") print $2}'
 }
 
 random=false
@@ -40,6 +45,10 @@ while [ $# -ne 0 ]; do
 		;;
 	"--lstags")
 		ls_tags
+		exit 0
+		;;
+	"--lsbackups")
+		ls_backups
 		exit 0
 		;;
 	"--help")
