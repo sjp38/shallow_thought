@@ -68,11 +68,7 @@ while [ $# -ne 0 ]; do
 		ls_backups
 		exit 0
 		;;
-	"--help")
-		pr_usage
-		exit 0
-		;;
-	"-h")
+	"--help" | "-h")
 		pr_usage
 		exit 0
 		;;
