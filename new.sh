@@ -20,6 +20,12 @@ no_sync=false
 while [ $# -ne 0 ]; do
 	case $1 in
 	"--date")
+		if [ $# -lt 2 ]
+		then
+			echo "<date> not given"
+			pr_usage
+			exit 1
+		fi
 		date=$2
 		shift 2
 		continue
