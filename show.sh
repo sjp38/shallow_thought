@@ -23,7 +23,11 @@ function ls_tags {
 }
 
 function ls_backups {
-	git branch -r | awk -F'/' '{if ($2 != "master") print $2}'
+	git branch -r | awk -F'/' \
+		'{
+			if ($1 == "  origin" && $2 != "master")
+				print $2
+		}'
 }
 
 random=false
