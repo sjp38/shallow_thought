@@ -11,10 +11,15 @@ date=$1
 no_sync=$2
 msg=$3
 
-if ! $no_sync && ! "$BINDIR/_pull.sh"
+if ! $no_sync
 then
-	echo "Sync failed"
-	exit 1
+	echo
+	echo "Pull remote thoughts"
+	if ! "$BINDIR/_pull.sh"
+	then
+		echo "Sync failed"
+		exit 1
+	fi
 fi
 
 tags=$(echo "$msg" | grep -o -E "#[a-zA-Z0-9_-]+" | tr '\n' ' ')
@@ -52,7 +57,8 @@ then
 	exit 0
 fi
 
-echo "Push the thought"
+echo
+echo "Push the thought to remote"
 if ! git push origin master
 then
 	echo "Failed to push to remote.  Do push manually."
