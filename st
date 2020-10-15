@@ -10,7 +10,7 @@ BINDIR=$(dirname "$0")
 
 subcmd="$BINDIR/$1.sh"
 
-if [ ! -x $subcmd ]
+if [ ! -x "$subcmd" ]
 then
 	echo "executable file $subcmd not found"
 	exit 1
