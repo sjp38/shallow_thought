@@ -88,7 +88,8 @@ Export Thoughts
 
     $ st export <export dir>
 
-The command receives directory to store the thoughts as an argument.
+The command receives directory to store the thoughts as an argument.  The files
+will have the date of the thought as a prefix of their name.
 
 
 Import Thoughts
@@ -96,7 +97,7 @@ Import Thoughts
 
 ``import`` subcommand imports thoughts exported by ``export`` subcommand.
 
-    $ st import <thoughts dir>
+    $ st import <thought> ...
 
-The command receives the directory the thoughts to be imported are stored.
-Imported thoughts are sorted in the date.
+The command receives the thoughts to be imported.  Whole thoughts will be
+sorted by their date after the importing.
