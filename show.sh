@@ -102,7 +102,8 @@ cmd="git log"
 if [ "$backup" != "" ]
 then
 	cmd+=" origin/$backup"
-	echo $cmd
+	echo "$cmd"
 fi
-$cmd --pretty="%ad%n%n%B%n%n" --skip=$to_skip --max-count=$nr_thoughts \
-	$tags_option
+cmd="$cmd --pretty=%ad%n%n%B%n%n --skip=$to_skip --max-count=$nr_thoughts \
+	$tags_option"
+eval "$cmd"
