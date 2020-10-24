@@ -22,7 +22,7 @@ then
 	fi
 fi
 
-tags=$(echo "$msg" | grep -o -E "#[a-zA-Z0-9_-]+" | tr '\n' ' ')
+tags=$(echo "$msg" | grep -o -E "#\w+" | tr '\n' ' ')
 tags+=" all"
 
 if [ ! -d tags ]

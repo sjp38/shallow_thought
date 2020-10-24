@@ -62,7 +62,7 @@ then
 	echo
 fi
 
-tags=$(echo "$msg" | grep -o -E "#[a-zA-Z0-9_-]+" | tr '\n' ' ')
+tags=$(echo "$msg" | grep -o -E "#\w+" | tr '\n' ' ')
 if [ ! -z "$tags" ]
 then
 	echo "found tags: $tags"
