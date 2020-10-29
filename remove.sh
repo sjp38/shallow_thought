@@ -14,7 +14,7 @@ fi
 
 nr_total_thoughts=$(git rev-list --count HEAD)
 
-if [ $nr_thoughts -ge $nr_total_thoughts ]
+if [ "$nr_thoughts" -ge "$nr_total_thoughts" ]
 then
 	echo "There are only $nr_total_thoughts (<= $nr_thoughts)"
 	exit 1
