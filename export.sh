@@ -17,9 +17,11 @@ for i in $(seq $((nr_thoughts - 1)) -1 0)
 do
 	to_skip=$((nr_thoughts - 1 - i))
 	git_option="--skip=$to_skip --max-count=1"
-	content="$(git log $git_option --pretty="%ad%n%n%B")"
+	cmd="git log $git_option --pretty=\"%ad%n%n%B\""
+	content=$(eval "$cmd")
 
-	title="$(git log $git_option --pretty="%ad.%h" --date=iso)"
+	cmd="git log $git_option --pretty=\"%ad.%h\" --date=iso"
+	title=$(eval "$cmd")
 
 	thought_file="$export_dir/$title"
 	if [ -f "$thought_file" ]
