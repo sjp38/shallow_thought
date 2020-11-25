@@ -47,7 +47,7 @@ git init
 git remote add origin "$origin"
 
 # Import thoughts again
-while IFS= read thought_file; do
+while IFS= read -r thought_file; do
 	echo "import $thought_file"
 
 	file="$to_import_dir/$thought_file"
