@@ -44,7 +44,7 @@ rm -fr tags
 rm -fr .git.bak
 mv .git .git.bak
 git init
-git remote add origin $origin
+git remote add origin "$origin"
 
 # Import thoughts again
 while IFS= read thought_file; do
