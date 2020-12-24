@@ -10,6 +10,8 @@ function pr_usage {
 	echo "              	having each tag"
 	echo " --backup <name>	Show thoughts in backup of <name>"
 	echo "  --lsbackups	List backups of thoughts"
+	echo "  --before <date>	Show thoughts before this day"
+	echo "  --after <date>	Show thoughts before this day"
 	echo "  -h, --help	Show this usage"
 }
 
@@ -68,6 +70,28 @@ while [ $# -ne 0 ]; do
 		ls_backups
 		exit 0
 		;;
+	"--before")
+		if [ $# -lt 2 ]
+		then
+			echo "<date> not given"
+			pr_usage
+			exit 1
+		fi
+		before=$2
+		shift 2
+		continue
+		;;
+	"--after")
+		if [ $# -lt 2 ]
+		then
+			echo "<date> not given"
+			pr_usage
+			exit 1
+		fi
+		after=$2
+		shift 2
+		continue
+		;;
 	"--help" | "-h")
 		pr_usage
 		exit 0
@@ -104,6 +128,17 @@ then
 	cmd+=" origin/$backup"
 	echo "$cmd"
 fi
+
+if [ ! -z "$before" ]
+then
+	cmd+=" --before=$before"
+fi
+
+if [ ! -z "$after" ]
+then
+	cmd+=" --after=$after"
+fi
+
 cmd="$cmd --pretty=%ad%n%n%B%n%n --skip=$to_skip --max-count=$nr_thoughts \
 	$tags_option"
 eval "$cmd"
