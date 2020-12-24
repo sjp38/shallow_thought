@@ -8,7 +8,7 @@ function pr_usage {
 	echo "  --tags <tags>	Show thoughts of <tags>"
 	echo "  --lstags	List existing tags and number of thoughts"
 	echo "              	having each tag"
-	echo " --backup <name>	Show thoughts in backup of <name>"
+	echo "  --backup <name>	Show thoughts in backup of <name>"
 	echo "  --lsbackups	List backups of thoughts"
 	echo "  --before <date>	Show thoughts before this day"
 	echo "  --after <date>	Show thoughts before this day"
@@ -126,7 +126,6 @@ cmd="git log"
 if [ "$backup" != "" ]
 then
 	cmd+=" origin/$backup"
-	echo "$cmd"
 fi
 
 if [ ! -z "$before" ]
