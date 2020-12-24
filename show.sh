@@ -114,14 +114,6 @@ then
 	tags_option=" -- $tags_option"
 fi
 
-nr_thoughts=$(git rev-list --count HEAD)
-to_skip=0
-
-if "$random"
-then
-	to_skip=$((RANDOM % nr_thoughts))
-	nr_thoughts=1
-fi
 cmd="git log"
 if [ "$backup" != "" ]
 then
@@ -138,6 +130,14 @@ then
 	cmd+=" --after=$after"
 fi
 
+nr_thoughts=$($cmd --oneline | wc -l)
+to_skip=0
+
+if "$random"
+then
+	to_skip=$((RANDOM % nr_thoughts))
+	nr_thoughts=1
+fi
 cmd="$cmd --pretty=%ad%n%n%B%n%n --skip=$to_skip --max-count=$nr_thoughts \
 	$tags_option"
 eval "$cmd"
