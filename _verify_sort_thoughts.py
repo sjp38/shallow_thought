@@ -21,7 +21,7 @@ def main():
 
     thoughts_dir = args.thoughts_dir
     if not os.path.isdir(thoughts_dir):
-        print('%s dir not exists' % thoughts_dir)
+        print('%s not exists' % thoughts_dir)
         exit(1)
 
     verified = {}
@@ -29,7 +29,7 @@ def main():
     for thought_file in os.listdir(thoughts_dir):
         path = os.path.join(thoughts_dir, thought_file)
         if not os.path.isfile(path):
-            print('not file')
+            print('%s: not file' % path)
             continue
 
         date = None
