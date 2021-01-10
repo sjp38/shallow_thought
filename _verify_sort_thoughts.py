@@ -22,6 +22,7 @@ def main():
     thoughts_dir = args.thoughts_dir
     if not os.path.isdir(thoughts_dir):
         print('%s dir not exists' % thoughts_dir)
+        exit(1)
 
     verified = {}
     thought_titles = []
