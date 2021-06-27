@@ -6,9 +6,9 @@ then
 	exit 1
 fi
 
-BINDIR=$(dirname "$0")
+bindir=$(dirname "$0")
 
-subcmd="$BINDIR/$1.sh"
+subcmd="$bindir/$1.sh"
 
 if [ ! -x "$subcmd" ]
 then

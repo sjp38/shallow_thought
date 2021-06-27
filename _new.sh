@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-BINDIR=$(dirname "$0")
+bindir=$(dirname "$0")
 date=$1
 no_sync=$2
 msg=$3
@@ -15,7 +15,7 @@ if ! $no_sync
 then
 	echo
 	echo "Pull remote thoughts"
-	if ! "$BINDIR/_pull.sh"
+	if ! "$bindir/_pull.sh"
 	then
 		echo "Sync failed"
 		exit 1

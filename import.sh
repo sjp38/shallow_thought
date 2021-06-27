@@ -25,12 +25,12 @@ cp "${@:1}" "$tmpdir/" || exit 1
 
 to_import_dir="$tmpdir"
 
-BINDIR=$(dirname "$0")
+bindir=$(dirname "$0")
 
 echo "export current thoughts to $to_import_dir"
-"$BINDIR/export.sh" "$to_import_dir"
+"$bindir/export.sh" "$to_import_dir"
 
-to_import=$("$BINDIR/_verify_sort_thoughts.py" "$to_import_dir") || exit 1
+to_import=$("$bindir/_verify_sort_thoughts.py" "$to_import_dir") || exit 1
 
 backup_name=$(date +%Y-%m-%d-%H-%M-%S)
 echo
@@ -53,7 +53,7 @@ while IFS= read -r thought_file; do
 	file="$to_import_dir/$thought_file"
 	date=$(head -n 1 "$file")
 	content=$(tail -n +3 "$file")
-	"$BINDIR/_new.sh" "$date" true "$content"
+	"$bindir/_new.sh" "$date" true "$content"
 
 done <<< "$to_import"
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-BINDIR=$(dirname "$0")
-"$BINDIR/_pull.sh" $@
+bindir=$(dirname "$0")
+"$bindir/_pull.sh" $@
