@@ -11,10 +11,16 @@ function pr_usage {
 	echo "  -h, --help	Show this usage"
 }
 
+function pr_usage_exit {
+	exit_code=$1
+
+	pr_usage
+	exit "$exit_code"
+}
+
 if [ $# -lt 1 ]
 then
-	pr_usage
-	exit 1
+	pr_usage_exit 1
 fi
 
 date=""
@@ -25,8 +31,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<date> not given"
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		date=$2
 		shift 2
@@ -38,14 +43,12 @@ while [ $# -ne 0 ]; do
 		continue
 		;;
 	"--help" | "-h")
-		pr_usage
-		exit 0
+		pr_usage_exit 0
 		;;
 	*)
 		if [ $# -ne 1 ]
 		then
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		msg=$1
 		break
