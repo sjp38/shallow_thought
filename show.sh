@@ -15,6 +15,12 @@ function pr_usage {
 	echo "  -h, --help	Show this usage"
 }
 
+function pr_usage_exit {
+	exit_code=$1
+	pr_usage
+	exit "$exit_code"
+}
+
 function ls_tags {
 	for tag in tags/*
 	do
@@ -44,8 +50,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<tags> not given"
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		tags=$2
 		shift 2
@@ -59,8 +64,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<name> not given"
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		backup=$2
 		shift 2
@@ -74,8 +78,7 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<date> not given"
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		before=$2
 		shift 2
@@ -85,20 +88,17 @@ while [ $# -ne 0 ]; do
 		if [ $# -lt 2 ]
 		then
 			echo "<date> not given"
-			pr_usage
-			exit 1
+			pr_usage_exit 1
 		fi
 		after=$2
 		shift 2
 		continue
 		;;
 	"--help" | "-h")
-		pr_usage
-		exit 0
+		pr_usage_exit 0
 		;;
 	*)
-		pr_usage
-		exit 1
+		pr_usage_exit 1
 		;;
 	esac
 done
