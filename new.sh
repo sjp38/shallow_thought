@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINDIR=$(dirname "$0")
+bindir=$(dirname "$0")
 
 function pr_usage {
 	echo "Usage: $0 [OPTION]... <text to log>"
@@ -74,4 +74,4 @@ then
 	exit
 fi
 
-"$BINDIR/_new.sh" "$date" $no_sync "$msg"
+"$bindir/_new.sh" "$date" $no_sync "$msg"
