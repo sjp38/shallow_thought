@@ -25,7 +25,8 @@ fi
 
 date=""
 no_sync=false
-while [ $# -ne 0 ]; do
+while [ $# -ne 0 ]
+do
 	case $1 in
 	"--date")
 		if [ $# -lt 2 ]
