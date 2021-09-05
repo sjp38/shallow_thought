@@ -31,8 +31,8 @@ Then, make a directory that will be used as a local storage of your thoughts.
 
     $ mkdir my_thoughts
 
-Move to your local storage and initialize the local storage to follow the
-remote repo.  Your thoughts will be automatically backed up on the remote repo.
+Move to your local storage and make it to follow the remote repo.  Your
+thoughts will be automatically backed up on the remote repo.
 
     $ cd my_thoughts
     $ st init https://github.com/foo/my_thoughts
@@ -50,7 +50,7 @@ Save Thoughts
 
 ``new`` subcommand receives your thought as string.  Then, it will pull the
 thoughts in the remote storage (``https://github.com/foo/my_thoughts`` in this
-example) on your local storage, save your thought on it and push to the remote
+example) on your local storage, save your thought on it, and push to the remote
 storage.
 
     $ st new "Let it go."
@@ -78,7 +78,10 @@ Note that removal will be also applied on your remote storage.
     $ st remove <number of latest thoughts to remove>
 
 If you don't provide the ``<number of latest thoughts to remove>``, it will
-remove only one latest thought.
+remove only one latest thought.  If you want to remove only thoughts in middle
+of the history, you can export thoughts, remove thought files that you want to
+remove, and then import those again, using subcommands described in below
+sections.
 
 
 Export Thoughts
