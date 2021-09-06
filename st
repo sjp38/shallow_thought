@@ -1,26 +1,23 @@
 #!/bin/bash
 
 bindir=$(dirname "$0")
+commands="
+    export		export thoughts to files
+    import		import thoughts from files
+    init		initialize with remote repository
+    new			write new thought
+    pull		pull thoughts from remote repository
+    register_remote	register remote repository
+    remove		remove recent thoughts
+    restore_backup	restore backup thoughts
+    show		show thoughts"
 
 if [ $# -lt 1 ]
 then
 	echo "Usage: $0 <command> [command arguments]"
 	echo
-	echo "  commands:"
-	for f in "$bindir"/*
-	do
-		if [ -x "$f" ]
-		then
-			command_name=$(echo $(basename "$f") | \
-				awk -F'.sh' '{print $1}')
-			if [ "$command_name" = "st" ] || \
-				[[ "$command_name" = "_"* ]]
-			then
-				continue
-			fi
-			echo "    $command_name"
-		fi
-	done
+	echo -n "  commands:"
+	echo "$commands"
 	exit 1
 fi
 
