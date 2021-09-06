@@ -2,15 +2,15 @@
 
 bindir=$(dirname "$0")
 commands="
-    export		export thoughts to files
-    import		import thoughts from files
     init		initialize with remote repository
     new			write new thought
-    pull		pull thoughts from remote repository
-    register_remote	register remote repository
+    show		show thoughts
     remove		remove recent thoughts
-    restore_backup	restore backup thoughts
-    show		show thoughts"
+    export		export thoughts to files
+    import		import thoughts from files
+    register_remote	register remote repository
+    pull		pull thoughts from remote repository
+    restore_backup	restore backup thoughts"
 
 if [ $# -lt 1 ]
 then
