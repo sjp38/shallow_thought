@@ -1,6 +1,7 @@
 #!/bin/bash
 
-function pr_usage {
+pr_usage()
+{
 	echo "Usage: $0 [OPTION]..."
 	echo
 	echo "OPTION"
@@ -15,13 +16,15 @@ function pr_usage {
 	echo "  -h, --help	Show this usage"
 }
 
-function pr_usage_exit {
+pr_usage_exit()
+{
 	exit_code=$1
 	pr_usage
 	exit "$exit_code"
 }
 
-function ls_tags {
+ls_tags()
+{
 	for tag in tags/*
 	do
 		nr_thoughts=$(cat "$tag")
@@ -30,7 +33,8 @@ function ls_tags {
 	done
 }
 
-function ls_backups {
+ls_backups()
+{
 	git branch -r | awk -F'/' \
 		'{
 			if ($1 == "  origin" && $2 != "master")

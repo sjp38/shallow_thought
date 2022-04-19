@@ -2,7 +2,8 @@
 
 bindir=$(dirname "$0")
 
-function pr_usage {
+pr_usage()
+{
 	echo "Usage: $0 [OPTION]... <text to log>"
 	echo
 	echo "OPTION"
@@ -11,7 +12,8 @@ function pr_usage {
 	echo "  -h, --help	Show this usage"
 }
 
-function pr_usage_exit {
+pr_usage_exit()
+{
 	exit_code=$1
 
 	pr_usage
